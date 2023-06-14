@@ -1,31 +1,6 @@
-<!--
-  ~ Waltz - Enterprise Architecture
-  ~ Copyright (C) 2016, 2017, 2018, 2019 Waltz open source project
-  ~ See README.md for more information
-  ~
-  ~ Licensed under the Apache License, Version 2.0 (the "License");
-  ~ you may not use this file except in compliance with the License.
-  ~ You may obtain a copy of the License at
-  ~
-  ~     http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~ Unless required by applicable law or agreed to in writing, software
-  ~ distributed under the License is distributed on an "AS IS" BASIS,
-  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~ See the License for the specific
-  ~
-  -->
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-    <!--
-    <parent>
-        <groupId>org.finos</groupId>
-        <artifactId>finos</artifactId>
-        <version>4</version>
-    </parent>
-    -->
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -34,13 +9,13 @@
     <version>1.51-SNAPSHOT</version>
     <modules>
         <module>waltz-common</module>
-        <module>waltz-model</module>
-        <module>waltz-service</module>
-        <module>waltz-web</module>
-        <module>waltz-jobs</module>
         <module>waltz-data</module>
+        <module>waltz-jobs</module>
+        <module>waltz-model</module>
         <module>waltz-schema</module>
+        <module>waltz-service</module>
         <module>waltz-test-common</module>
+        <module>waltz-web</module>
         <!--TODO: find a better way of passing a logback configuration file-->
         <!--<module>waltz-local-config</module>-->
     </modules>
@@ -166,7 +141,6 @@
                 <version>${jackson-jsr310.version}</version>
             </dependency>
 
-
             <!-- logging -->
             <dependency>
                 <groupId>org.slf4j</groupId>
@@ -183,7 +157,6 @@
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.version}</version>
             </dependency>
-
 
             <!-- core -->
             <dependency>
@@ -247,14 +220,12 @@
                 <version>${commons-jexl3.version}</version>
             </dependency>
 
-
             <!-- db -->
             <dependency>
                 <groupId>com.zaxxer</groupId>
                 <artifactId>HikariCP</artifactId>
                 <version>${hikari.version}</version>
             </dependency>
-
 
             <!-- mail -->
             <dependency>
@@ -267,7 +238,6 @@
                 <artifactId>mail</artifactId>
                 <version>${javax.mail.version}</version>
             </dependency>
-
 
             <!-- other -->
             <dependency>
@@ -285,7 +255,6 @@
                 <artifactId>poi-ooxml</artifactId>
                 <version>${poi.version}</version>
             </dependency>
-
 
             <!-- test -->
             <dependency>
@@ -517,7 +486,6 @@
             </properties>
         </profile>
 
-
         <profile>
             <id>travis-mariadb</id>
             <properties>
@@ -631,28 +599,10 @@
                     </archive>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
     <reporting>
         <plugins>
-            <!-- DISABLING: causes a build failure with message: "Unable to download NVD CVE 2022" -->
-<!--            <plugin>-->
-<!--                <groupId>org.owasp</groupId>-->
-<!--                <artifactId>dependency-check-maven</artifactId>-->
-<!--                <configuration>-->
-<!--                    <cveValidForHours>48</cveValidForHours>-->
-<!--                    &lt;!&ndash;<failBuildOnCVSS>7</failBuildOnCVSS>&ndash;&gt;-->
-<!--                    &lt;!&ndash;mavenSettingsProxyId>artifactory</mavenSettingsProxyId&ndash;&gt;-->
-<!--                </configuration>-->
-<!--                <reportSets>-->
-<!--                    <reportSet>-->
-<!--                        <reports>-->
-<!--                            <report>aggregate</report>-->
-<!--                        </reports>-->
-<!--                    </reportSet>-->
-<!--                </reportSets>-->
-<!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-report-plugin</artifactId>
@@ -673,6 +623,5 @@
             </plugin>
         </plugins>
     </reporting>
-
 
 </project>
